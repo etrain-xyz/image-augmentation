@@ -1,0 +1,6 @@
+example_result/*
+!example_result/.keep
+example_config.yaml
+
+*.comments
+*__pycache__
