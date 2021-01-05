@@ -87,4 +87,4 @@ if __name__ == "__main__":
 		config = yaml.load(file, Loader=yaml.FullLoader)
 
 	print(config)
-	start(config["current_dir"], config["labels"])
+	start(config["result_path"], config["labels"])

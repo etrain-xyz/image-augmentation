@@ -7,6 +7,7 @@ import random
 from shutil import copyfile
 from os import listdir
 from os.path import isdir, isfile, join
+import yaml
 
 
 def mapPointsRotated(old_points, rotation_mat):
@@ -112,12 +113,16 @@ def copyYoloImage(_img, result_path, yolo_old_file, yolo_new_file):
 	copyfile(result_path + yolo_old_file, result_path + yolo_new_file + ".txt")
 
 if __name__ == "__main__":
+	with open(r'./example_config.yaml') as file:
+		config = yaml.load(file, Loader=yaml.FullLoader)
+
 	object_path = "./example_data/object/"
 	bg_dir = "./example_data/background/"
-	result_path = "./example_result/"
+	result_path = config["result_path"]
+	labels = config["labels"]
 
 	background_images = [f for f in listdir(bg_dir) if isfile(join(bg_dir, f))]
-	labels = ["two", "twenty"]
+	
 	img1 = cv2.imread(object_path + labels[0] + "/front.jpg")
 	img2 = cv2.imread(object_path + labels[0] + "/back.jpg")
 	img3 = cv2.imread(object_path + labels[1] + "/front.jpg")

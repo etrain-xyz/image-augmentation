@@ -1,12 +1,13 @@
+### Create `example_config.yaml` file
+```yaml
+result_path: "./example_result/"
+labels: ["two", "twenty"]
+```
+
+
 ### Data augmentation
 ```bash
 python yolo_example.py
-```
-
-### Create `example_config.yaml` file
-```yaml
-current_dir: "./example_result/"
-labels: ["two", "twenty"]
 ```
 
 ### Check data
