@@ -33,6 +33,12 @@ def yoloCoordinates(points, width, height, offset_x=0, offset_y=0):
 	cy_p = ((min(Y) + max(Y)) / 2) / height
 	box_w_p = (max(X) - min(X)) / width
 	box_h_p = (max(Y) - min(Y)) / height
+	if float("{:.2f}".format(cx_p)) == 0.5 and float("{:.2f}".format(box_w_p)) == 1.0:
+		cx_p = 0.5
+		box_w_p = 1.0
+	if float("{:.2f}".format(cy_p)) == 0.5 and float("{:.2f}".format(box_h_p)) == 1.0:
+		cy_p = 0.5
+		box_h_p = 1.0
 	return cx_p, cy_p, box_w_p, box_h_p
 
 
