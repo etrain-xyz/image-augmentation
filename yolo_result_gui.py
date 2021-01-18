@@ -57,12 +57,13 @@ def showImg(yolo_dir, yolo_labels, file):
 
 def start(yolo_dir, yolo_labels):
 	images = []
-	for pathAndFilename in glob.iglob(os.path.join(yolo_dir, "*.png")):
+	for pathAndFilename in glob.iglob(os.path.join(yolo_dir, "*.*")):
 		title, ext = os.path.splitext(os.path.basename(pathAndFilename))
-		images.append({
-			"title": title,
-			"ext": ext
-		})
+		if ext != ".txt":
+			images.append({
+				"title": title,
+				"ext": ext
+			})
 
 	index = random.randrange(0, len(images))
 	file = images.pop(index)
